@@ -11,7 +11,7 @@ def catch_all(path):
 def home():
     return render_template('index.html')
 users = {
-    "user@example.com": {"password": "password123"}  # Replace with actual hashed passwords
+    "user@example.com": {"password": "password123"}
 }
 
 @app.route('/')
@@ -25,14 +25,14 @@ def sign_in():
     password = data.get('password')
 
     if email in users and users[email]['password'] == password:
-        # In a real app, generate a session token or set a cookie here
+        
         return jsonify({"success": True})
     else:
         return jsonify({"success": False}), 401  # Unauthorized
 
 @app.route('/dashboard')
 def dashboard():
-    # In a real app, check if the user is authenticated before showing this page
+    
     return "Welcome to your dashboard!",render_template('index.html')
 
 @app.route('/about')
