@@ -54,3 +54,46 @@ AkiliSync is designed to revolutionize the way you approach learning. By leverag
   - GitHub for hosting and collaboration
 
 ---
+## Installation
+
+Follow these steps to get the project up and running locally.
+
+1. **Clone the repository**:
+
+   
+   git clone https://github.com/kevzkip/AkiliSync.git
+   Navigate to the project directory:
+
+
+cd AkiliSync
+Create a virtual environment:
+
+
+python -m venv venv
+Activate the virtual environment:
+
+On Windows:
+
+venv\Scripts\activate
+On macOS/Linux:
+
+source venv/bin/activate
+
+
+Install the required dependencies:
+
+pip install -r requirements.txt
+
+
+Running the Application
+To start the Flask application, follow these steps:
+
+Run the Flask server:
+
+python app.py
+
+Visit the application: Open a web browser and navigate to:
+
+http://127.0.0.1:5000/
+
+This will load the home page of the AkiliSync app.
