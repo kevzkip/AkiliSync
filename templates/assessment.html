@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Assessment - AkiliSync</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="assessment.html" class="active">Take Assessment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Take an Assessment</h1>
+        <p>Test your knowledge and track your learning progress.</p>
+    </section>
+
+    <!-- AI Learning Progress Tracker -->
+    <section class="ai-progress-tracker">
+        <h3>Track Your Progress</h3>
+        <ul>
+            <li><strong>Lesson 1:</strong> History of Programming</li>
+            <li><strong>Lesson 2:</strong> Types of Programming Languages</li>
+            <li><strong>Lesson 3:</strong> Basics of Python</li>
+        </ul>
+        <button class="start-next">Start Assessment</button>
+    </section>
+
+    <!-- Assessment Form -->
+    <section id="main-content">
+        <h2>Assessment Questions</h2>
+        <form>
+            <div class="question">
+                <label for="q1">1. Which language is best for web development?</label>
+                <select id="q1" name="q1">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="c">C</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label for="q2">2. What is OOP?</label>
+                <input type="text" id="q2" name="q2">
+            </div>
+
+            <button type="submit">Submit Answers</button>
+        </form>
+    </section>
+
+    <!-- AI Suggestions -->
+    <section class="ai-suggestions">
+        <h3>AI Learning Suggestions</h3>
+        <ul>
+            <li>Review lesson 2 on Types of Programming Languages to improve your knowledge of language categories.</li>
+            <li>Practice with hands-on coding exercises to better understand Object-Oriented Programming (OOP).</li>
+            <li>Explore JavaScript tutorials for web development to enhance your practical skills.</li>
+        </ul>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-header">AI Assistant</div>
+        <div class="chatbot-body">
+            <p>How can I assist you with your assessment today?</p>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Ask me anything...">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AkiliSync. All rights reserved.</p>
+    </footer>
+</body>
+</html>

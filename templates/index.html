@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AkiliSync - Your Learning Journey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/assessment">Take Assessment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        {% if username %}
+            <h1>Welcome, {{ username }}!</h1>
+            <p>Transform the way you learn, and unlock your potential with personalized, AI-driven feedback.</p>
+            <a href="/logout" style="color: red; font-size: 0.9em;">Logout</a>
+        {% else %}
+            <h1>Welcome to AkiliSync</h1>
+            <p>Transform the way you learn, and unlock your potential with personalized, AI-driven feedback.</p>
+            <button id="startLearningBtn">Start Learning</button>
+            <button id="takeAssessmentBtn">Take an Assessment</button>
+        {% endif %}
+    </section>
+
+    <!-- Sign In Form Section -->
+    <section id="sign-in-section" style="background-color: #fff; padding: 20px; margin: 30px auto; width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 style="text-align: center; font-size: 1.8em; color: #333;">Sign In</h3>
+        <form id="sign-in-form" style="display: flex; flex-direction: column;">
+            <div style="margin-bottom: 15px;">
+                <label for="email" style="font-size: 1em; color: #333; margin-bottom: 5px;">Email</label>
+                <input type="email" id="email" name="email" style="padding: 10px; font-size: 1em; border: 1px solid #ddd; border-radius: 4px; width: 100%;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="password" style="font-size: 1em; color: #333; margin-bottom: 5px;">Password</label>
+                <input type="password" id="password" name="password" style="padding: 10px; font-size: 1em; border: 1px solid #ddd; border-radius: 4px; width: 100%;">
+            </div>
+            <button type="submit" style="background-color: #007bff; color: white; padding: 10px; font-size: 1.2em; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Sign In</button>
+        </form>
+        <div id="login-error" style="text-align: center; font-size: 1em; margin-top: 10px; color: #d9534f; display: none;">
+            Invalid email or password.
+        </div>
+    </section>
+
+
+    <!-- AI-Powered Suggestions Section -->
+    <section class="ai-suggestions">
+        <h3>AI-Powered Suggestions</h3>
+        <ul>
+            <li>Start with the Basics of Programming</li>
+            <li>Try learning about Object-Oriented Programming next!</li>
+            <li>Test your knowledge with our Quiz on Data Structures</li>
+        </ul>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div id="ai-chatbot" class="chatbot">
+        <div class="chatbot-header">
+            <h4>AI Assistant</h4>
+        </div>
+        <div class="chatbot-body">
+            <p>Hi! How can I assist you with your learning today?</p>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Ask me something..." />
+            <button>Send</button>
+        </div>
+    </div>
+  
+    <!-- AI Learning Progress Tracker -->
+    <section class="ai-progress-tracker">
+        <h3>AI Learning Progress Tracker</h3>
+        <p>AI has tracked your progress so far. Here’s what you’ve mastered:</p>
+        <ul>
+            <li>Programming Basics - 90% completed</li>
+            <li>Object-Oriented Programming - 70% completed</li>
+            <li>Data Structures Quiz - 50% completed</li>
+        </ul>
+        <button class="start-next">Start Next Lesson</button>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="main-content">
+        <h2 class="center">Your Learning Journey Starts Here</h2>
+        <p>AkiliSync is not just another learning platform. It’s an experience designed to tailor your learning to your unique needs, challenges, and goals. Whether you’re a beginner looking to explore new concepts or an expert refining your skills, AkiliSync offers a personalized learning path that adapts to your pace and provides meaningful feedback.</p>
+        
+        <h3 class="center">What You Will Learn</h3>
+        <ul>
+            <li><strong>The History of Programming:</strong> Understand how programming languages and tools have evolved over time, and discover how these advances have shaped the digital world.</li>
+            <li><strong>Types of Programming Languages:</strong> Learn about the various types of programming languages and their unique purposes. Whether it’s procedural, object-oriented, or functional, we cover it all.</li>
+            <li><strong>AI and Machine Learning:</strong> Dive deep into the world of AI, machine learning, and how these technologies are revolutionizing industries.</li>
+            <li><strong>Modern Development Practices:</strong> Explore the tools, practices, and frameworks that are transforming how we code, build software, and collaborate as developers.</li>
+        </ul>
+
+        <h3 class="center">Ready to Begin?</h3>
+        <p>We’ve created a seamless, interactive experience that makes learning enjoyable and effective. Our platform adjusts based on your progress, so you never feel overwhelmed or lost. Whether you're looking to gain new skills, improve your existing knowledge, or test yourself through assessments, AkiliSync is your go-to resource.</p>
+        
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 AkiliSync. All rights reserved.</p>
+            <div>
+                <a href="/about">About</a> | 
+                <a href="/privacy-policy">Privacy Policy</a> | 
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        document.getElementById('sign-in-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            fetch('/sign-in', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/'; // Redirect to the home page
+                } else {
+                    document.getElementById('login-error').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('login-error').style.display = 'block';
+            });
+        });
+        
+    </script>
+</body>
+</html>
