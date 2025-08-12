@@ -1,6 +1,6 @@
 # AkiliSync - Your Personalized Learning Journey
 
-AkiliSync is a learning platform designed to provide a personalized, AI-powered learning experience. Whether you're a beginner or an expert, AkiliSync tailors your learning path based on your progress and feedback, helping you unlock your full potential.
+AkiliSync is a learning platform designed to provide a personalized , AI-powered learning experience. Whether you're a beginner or an expert, AkiliSync tailors your learning path based on your progress and feedback, helping you unlock your full potential.
 
 ---
 
